@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const person = require('../models/person')
+const person = require('../models/person');
+const passport = require("passport");
 
-router.get("/", (req, res)=>{
+router.get("/",(req, res)=>{
     res.send("hey from the server")
 });
 
@@ -69,5 +70,4 @@ router.delete('/:id', async (req, res)=>{
     }
 });
 
-//comment added
 module.exports = router;
