@@ -5,7 +5,7 @@ const person = require('./models/person');
 const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
-
+require('dotenv').config();
 //importing routers
 const personRoutes = require('./routes/personRoutes');
 
@@ -13,4 +13,6 @@ const personRoutes = require('./routes/personRoutes');
 //using routes
 app.use('/person', personRoutes);
 
-app.listen(3000, ()=> {console.log("server started")});
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, ()=> {console.log("server started")});
