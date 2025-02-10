@@ -1,6 +1,6 @@
 const { default: mongoose } = require("mongoose");
 const Mongoose  = require("mongoose");
-
+const bcryptjs = require("bcryptjs")
 const personSchema =new Mongoose.Schema({
     name:{
         type: String,
@@ -35,6 +35,17 @@ const personSchema =new Mongoose.Schema({
       required: true
      }
 });
+// personSchema.pre('save', async function (next) {
+//    const person = this;
+//    if(!person.isModified('password')) return next();
+//    try{
+//       const salt = await bcryptjs.genSalt(10);
+//       next();
+//    }
+//    catch(err){
+//       // res.json(500).json({error: "Internal server error"})
+//    }
+// })
 
 const person = mongoose.model('Person', personSchema);
 
